@@ -1,0 +1,65 @@
+Logging to path/to/tensorboard/data
+T: 50
+_Q_lr: 0.001
+_action_l2: 1.0
+_batch_size: 256
+_buffer_size: 1000000
+_clip_obs: 200.0
+_hidden: 256
+_layers: 3
+_max_u: 1.0
+_network_class: baselines.her.actor_critic:ActorCritic
+_norm_clip: 5
+_norm_eps: 0.01
+_pi_lr: 0.001
+_polyak: 0.95
+_relative_goals: False
+_scope: ddpg
+ddpg_params: {'buffer_size': 1000000, 'hidden': 256, 'layers': 3, 'network_class': 'baselines.her.actor_critic:ActorCritic', 'polyak': 0.95, 'batch_size': 256, 'Q_lr': 0.001, 'pi_lr': 0.001, 'norm_eps': 0.01, 'norm_clip': 5, 'max_u': 1.0, 'action_l2': 1.0, 'clip_obs': 200.0, 'scope': 'ddpg', 'relative_goals': False}
+env_name: FetchReach-v1
+gamma: 0.98
+make_env: <function prepare_params.<locals>.make_env at 0x7f937c0b6b70>
+n_batches: 40
+n_cycles: 10
+n_test_rollouts: 10
+noise_eps: 0.2
+random_eps: 0.3
+replay_k: 4
+replay_strategy: future
+rollout_batch_size: 2
+test_with_polyak: False
+threshold: 0.05
+
+*** Warning ***
+You are running HER with just a single MPI worker. This will work, but the experiments that we report in Plappert et al. (2018, https://arxiv.org/abs/1802.09464) were obtained with --num_cpu 19. This makes a significant difference and if you are looking to reproduce those results, be aware of this. Please also refer to https://github.com/openai/baselines/issues/314 for further details.
+****************
+
+Creating a DDPG agent with action space 4 x 1.0...
+Training...
+------------------------------------
+| epoch              | 0           |
+| stats_g/mean       | 0.8577784   |
+| stats_g/std        | 0.10175099  |
+| stats_o/mean       | 0.25706103  |
+| stats_o/std        | 0.032041125 |
+| test/episode       | 20.0        |
+| test/mean_Q        | -0.8269706  |
+| test/success_rate  | 0.65        |
+| train/episode      | 20.0        |
+| train/success_rate | 0.0         |
+------------------------------------
+New best success rate: 0.65. Saving policy to path/to/tensorboard/data/policy_best.pkl ...
+Saving periodic policy to path/to/tensorboard/data/policy_0.pkl ...
+------------------------------------
+| epoch              | 1           |
+| stats_g/mean       | 0.85998565  |
+| stats_g/std        | 0.09373733  |
+| stats_o/mean       | 0.2574373   |
+| stats_o/std        | 0.030460244 |
+| test/episode       | 40.0        |
+| test/mean_Q        | -0.8791752  |
+| test/success_rate  | 0.7         |
+| train/episode      | 40.0        |
+| train/success_rate | 0.7         |
+------------------------------------
+New best success rate: 0.7. Saving policy to path/to/tensorboard/data/policy_best.pkl ...
